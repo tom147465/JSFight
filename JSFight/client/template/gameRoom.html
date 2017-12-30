@@ -1,0 +1,33 @@
+<div ng-controller="socketController">
+	<div id="chatroom">
+		<div class="left">
+			
+			<div><a href="#" ng-click="logOut()">LogOut</a></div>
+			{{user.Username}}</br>
+			Games:{{user.Games}}</br>
+			Wins :{{user.Wins}}</br>
+			<div><input type="button" value="quickFight" onclick="quickFight();" id="btnlogin" ></div>
+		</div>
+		<div class="middle" ng-form="chatForm">
+			<div>
+				<textarea style="width:100%;height:400px;" id="chathistory" disabled="disabled"></textarea>
+			</div>
+			<div>
+				<textarea style="width:90%;" rows="5" name="message" id="message" ng-model="message" ng-required="true"></textarea>
+				<input type="button" value="Send" id="send" ng-click="sendmsg(message);" ng-disabled="chatForm.message.$invalid">
+			</div>
+		</div>
+		<div class="right">
+			<div id="onlineusers"></div>
+		</div>
+	</div>
+
+	<div>
+		<p id="InviteInform"></p>
+	</div>
+
+	<div id="JSgame" ng-controller="JSgameController">
+		<canvas id="myCanvas" width="800" height="500" style="border:1px solid #c3c3c3; display:none " >您的浏览器不支持</canvas>
+	</div>
+
+</div>

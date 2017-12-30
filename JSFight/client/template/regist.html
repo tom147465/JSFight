@@ -1,0 +1,18 @@
+<form ng-controller="registController" name="registForm" novalidate>
+	<input type="text" name="username" class="form-input" placeholder="Your Username..." ng-model="user.Username" required/>
+	<span style="color:red" ng-show="registForm.username.$dirty && registForm.username.$invalid">
+		<span ng-show="registForm.username.$error.required">Username is required.</span>
+	</span>
+	<input type="password" name="password" class="form-input" placeholder="Your Password..." ng-model="user.PWD" required/>
+	<span style="color:red" ng-show="registForm.password.$dirty && registForm.password.$invalid">
+		<span ng-show="registForm.password.$error.required">Password is required.</span>
+	</span>
+	
+	<div style="text-align: center;">
+		<input type="submit"
+		ng-disabled="(registForm.username.$dirty && registForm.username.$invalid) ||
+		(registForm.password.$dirty && registForm.password.$invalid)" 
+		ng-click="createUser(user)"
+		value="Regist NOW!" />
+	</div>
+</form>

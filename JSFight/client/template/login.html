@@ -1,0 +1,19 @@
+<p>Login!!!!!!!!!!!!</p>
+<form ng-controller="loginController" name="LoginForm" novalidate>
+	<input type="text" name="username" class="form-input" placeholder="Your Username..." ng-model="user.Username" required/>
+	<span style="color:red" ng-show="LoginForm.username.$dirty && LoginForm.username.$invalid">
+		<span ng-show="LoginForm.username.$error.required">Username is required.</span>
+	</span>
+	<input type="password" name="password" class="form-input" placeholder="Your Password..." ng-model="user.PWD" required/>
+	<span style="color:red" ng-show="LoginForm.password.$dirty && LoginForm.password.$invalid">
+		<span ng-show="LoginForm.password.$error.required">Password is required.</span>
+	</span>
+	
+	<div style="text-align: center;">
+		<input type="submit" class="btn btn-primary-custom" 
+		ng-disabled="(LoginForm.username.$dirty && LoginForm.username.$invalid) ||
+		(LoginForm.password.$dirty && LoginForm.password.$invalid)" 
+		ng-click="UserLogin(user)"
+		value="Login" />
+	</div>
+</form>
